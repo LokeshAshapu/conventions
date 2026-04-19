@@ -1,9 +1,11 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { halls } from "@/lib/data";
 
-const eventTypes = ["All Events", "Wedding", "Corporate", "Birthday", "Cultural", "Conference", "Exhibition"];
-const cities = ["All Cities", "Hyderabad", "Mumbai", "Delhi", "Bengaluru", "Chennai", "Pune"];
+const derivedEventTypes = ["All Events", ...Array.from(new Set(halls.flatMap(h => h.eventTypes)))];
+const derivedCities = ["All Cities", ...Array.from(new Set(halls.map(h => h.location.split(",").pop()?.trim() || "Hyderabad")))];
+
 
 export default function SearchSection() {
   const router = useRouter();
@@ -19,7 +21,7 @@ export default function SearchSection() {
     if (city !== "All Cities") params.set("city", city.toLowerCase());
     if (guests) params.set("guests", guests);
     if (date) params.set("date", date);
-    router.push(`/halls?${params.toString()}`);
+    router.push(`/venues?${params.toString()}`);
   };
 
   return (
@@ -55,8 +57,9 @@ export default function SearchSection() {
                   className="form-select"
                   value={eventType}
                   onChange={(e) => setEventType(e.target.value)}
+                  suppressHydrationWarning
                 >
-                  {eventTypes.map((t) => <option key={t}>{t}</option>)}
+                  {derivedEventTypes.map((t) => <option key={t}>{t}</option>)}
                 </select>
               </div>
 
@@ -66,8 +69,9 @@ export default function SearchSection() {
                   className="form-select"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
+                  suppressHydrationWarning
                 >
-                  {cities.map((c) => <option key={c}>{c}</option>)}
+                  {derivedCities.map((c) => <option key={c}>{c}</option>)}
                 </select>
               </div>
 
@@ -80,6 +84,7 @@ export default function SearchSection() {
                   value={guests}
                   onChange={(e) => setGuests(e.target.value)}
                   min="1"
+                  suppressHydrationWarning
                 />
               </div>
 
@@ -92,10 +97,11 @@ export default function SearchSection() {
                   onChange={(e) => setDate(e.target.value)}
                   min={new Date().toISOString().split("T")[0]}
                   style={{ colorScheme: "dark" }}
+                  suppressHydrationWarning
                 />
               </div>
 
-              <button type="submit" className="btn btn-primary btn-lg" style={{ height: "50px", padding: "0 2rem" }}>
+              <button type="submit" className="btn btn-primary btn-lg" style={{ height: "50px", padding: "0 2rem" }} suppressHydrationWarning>
                 Search Halls
               </button>
             </div>
@@ -107,7 +113,7 @@ export default function SearchSection() {
             {["Wedding Halls", "Corporate Venues", "Banquet Halls", "Conference Rooms", "Exhibition Centres"].map((t) => (
               <button
                 key={t}
-                onClick={() => router.push(`/halls?q=${encodeURIComponent(t)}`)}
+                onClick={() => router.push(`/venues?q=${encodeURIComponent(t)}`)}
                 style={{
                   padding: "0.3rem 0.85rem",
                   borderRadius: "999px",

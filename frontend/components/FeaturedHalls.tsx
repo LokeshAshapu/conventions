@@ -27,7 +27,7 @@ export default function FeaturedHalls() {
         </div>
 
         <div style={{ textAlign: "center", marginTop: "3rem" }}>
-          <Link href="/halls" className="btn btn-secondary btn-lg">
+          <Link href="/venues" className="btn btn-secondary btn-lg">
             View All Halls →
           </Link>
         </div>

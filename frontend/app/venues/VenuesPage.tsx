@@ -1,8 +1,40 @@
 "use client";
 import Link from "next/link";
 import { halls, HALL_INFO } from "@/lib/data";
+import { useSearchParams } from "next/navigation";
+import { useMemo } from "react";
 
 export default function VenuesPage() {
+  const searchParams = useSearchParams();
+  
+  const filteredHalls = useMemo(() => {
+    const event = searchParams.get("event")?.toLowerCase();
+    const city = searchParams.get("city")?.toLowerCase();
+    const guests = parseInt(searchParams.get("guests") || "0");
+    const q = searchParams.get("q")?.toLowerCase();
+
+    return halls.filter((hall) => {
+      // Event filtering
+      if (event && !hall.eventTypes.some(t => t.toLowerCase().includes(event)) && 
+          !hall.type.toLowerCase().includes(event)) return false;
+      
+      // City filtering
+      if (city && !hall.location.toLowerCase().includes(city)) return false;
+      
+      // Capacity filtering
+      if (guests && hall.maxCapacity < guests) return false;
+
+      // Text query filtering
+      if (q && !hall.name.toLowerCase().includes(q) && 
+          !hall.shortDescription.toLowerCase().includes(q) &&
+          !hall.facilities.some(f => f.toLowerCase().includes(q))) return false;
+
+      return true;
+    });
+  }, [searchParams]);
+
+  const hasFilters = searchParams.get("event") || searchParams.get("city") || searchParams.get("guests") || searchParams.get("q");
+
   return (
     <div style={{ paddingTop: "5rem", minHeight: "100vh" }}>
       {/* Hero Banner */}
@@ -25,15 +57,21 @@ export default function VenuesPage() {
             The Venues
           </h1>
           <p className="text-body" style={{ maxWidth: 560, margin: "0 auto", fontSize: "1rem" }}>
-            {halls.length} architecturally distinct spaces, each a blank canvas for your imagination.
+            {hasFilters ? `Found ${filteredHalls.length} matching spaces` : `${halls.length} architecturally distinct spaces, each a blank canvas for your imagination.`}
           </p>
+          {hasFilters && (
+            <Link href="/venues" style={{ display: "inline-block", marginTop: "1.5rem", color: "var(--gold)", textDecoration: "underline", fontSize: "0.9rem" }}>
+              Clear all filters
+            </Link>
+          )}
         </div>
       </div>
 
       {/* Venues Grid */}
       <div className="container" style={{ padding: "5rem 1.5rem" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "6rem" }}>
-          {halls.map((venue, i) => (
+        {filteredHalls.length > 0 ? (
+          <div style={{ display: "flex", flexDirection: "column", gap: "6rem" }}>
+            {filteredHalls.map((venue, i) => (
             <div key={venue.id} id={venue.slug} className="split-grid" style={{
               display: "grid",
               gridTemplateColumns: i % 2 === 0 ? "1.2fr 1fr" : "1fr 1.2fr",
@@ -132,7 +170,14 @@ export default function VenuesPage() {
               </div>
             </div>
           ))}
-        </div>
+          </div>
+        ) : (
+          <div style={{ textAlign: "center", padding: "4rem 0" }}>
+            <h2 className="text-h2" style={{ marginBottom: "1rem" }}>No Spaces Found</h2>
+            <p className="text-body" style={{ marginBottom: "2rem" }}>We couldn't find any venues matching your current search criteria.</p>
+            <Link href="/venues" className="btn btn-primary" style={{ display: "inline-block" }}>View All Venues</Link>
+          </div>
+        )}
       </div>
     </div>
   );

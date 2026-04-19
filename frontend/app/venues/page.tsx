@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description: `Explore all event spaces at ${HALL_INFO.name}: grand ballrooms, open-air lawns, banquet halls, conference rooms, and more.`,
 };
 
+import { Suspense } from "react";
+
 export default function Venues() {
-  return <VenuesPage />;
+  return (
+    <Suspense fallback={<div className="container" style={{ paddingTop: "10rem", textAlign: "center" }}>Loading venues...</div>}>
+      <VenuesPage />
+    </Suspense>
+  );
 }

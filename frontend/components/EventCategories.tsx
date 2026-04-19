@@ -23,7 +23,7 @@ export default function EventCategories() {
           {eventCategories.map((cat, i) => (
             <Link
               key={cat.id}
-              href={`/halls?event=${cat.id}`}
+              href={`/venues?event=${cat.id}`}
               style={{ textDecoration: "none", animationDelay: `${i * 0.05}s` }}
             >
               <div
