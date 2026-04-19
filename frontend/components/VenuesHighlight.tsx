@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
-import { venues } from "@/lib/data";
+import { halls } from "@/lib/data";
 
 export default function VenuesHighlight() {
-  const featured = venues.slice(0, 4);
+  const featured = halls.slice(0, 4);
 
   return (
     <section className="section bg-card">

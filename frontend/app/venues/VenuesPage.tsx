@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { venues, HALL_INFO } from "@/lib/data";
+import { halls, HALL_INFO } from "@/lib/data";
 
 export default function VenuesPage() {
   return (
@@ -25,7 +25,7 @@ export default function VenuesPage() {
             The Venues
           </h1>
           <p className="text-body" style={{ maxWidth: 560, margin: "0 auto", fontSize: "1rem" }}>
-            {venues.length} architecturally distinct spaces, each a blank canvas for your imagination.
+            {halls.length} architecturally distinct spaces, each a blank canvas for your imagination.
           </p>
         </div>
       </div>
@@ -33,7 +33,7 @@ export default function VenuesPage() {
       {/* Venues Grid */}
       <div className="container" style={{ padding: "5rem 1.5rem" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "6rem" }}>
-          {venues.map((venue, i) => (
+          {halls.map((venue, i) => (
             <div key={venue.id} id={venue.slug} className="split-grid" style={{
               display: "grid",
               gridTemplateColumns: i % 2 === 0 ? "1.2fr 1fr" : "1fr 1.2fr",
