@@ -125,13 +125,13 @@ export default function ContactSection() {
                 <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" }}>
                   <div className="form-group">
                     <label className="form-label">Event Type</label>
-                    <select required className="form-select" value={form.eventType} onChange={(e) => setForm({ ...form, eventType: e.target.value })}>
+                    <select required className="form-select" value={form.eventType} onChange={(e) => setForm({ ...form, eventType: e.target.value })} suppressHydrationWarning>
                       {["Wedding", "Reception", "Corporate", "Conference", "Cultural", "Exhibition", "Other"].map((t) => <option key={t}>{t}</option>)}
                     </select>
                   </div>
                   <div className="form-group">
                     <label className="form-label">Venue Preference</label>
-                    <select className="form-select" value={form.venue} onChange={(e) => setForm({ ...form, venue: e.target.value })}>
+                    <select className="form-select" value={form.venue} onChange={(e) => setForm({ ...form, venue: e.target.value })} suppressHydrationWarning>
                       <option value="Any">Not Sure Yet</option>
                       <option>Aashirwad Grand Ballroom</option>
                       <option>Utsava Convention Hall</option>
@@ -144,10 +144,10 @@ export default function ContactSection() {
 
                 <div className="form-group">
                   <label className="form-label">Additional Details</label>
-                  <textarea className="form-input" rows={2} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} style={{ resize: "vertical" }} />
+                  <textarea className="form-input" rows={2} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} style={{ resize: "vertical" }} suppressHydrationWarning />
                 </div>
 
-                <button type="submit" disabled={loading} className="btn btn-primary btn-lg" style={{ marginTop: "1rem" }}>
+                <button type="submit" disabled={loading} className="btn btn-primary btn-lg" style={{ marginTop: "1rem" }} suppressHydrationWarning>
                   {loading ? "Processing..." : "Submit Inquiry"}
                 </button>
               </form>
