@@ -32,8 +32,8 @@
     "bookedDates": ["2026-04-25", "2026-04-26", "2026-05-01"],
     "featured": true,
     "discount": 15,
-    "phone": "+91-9876543210",
-    "whatsapp": "919876543210",
+    "phone": "+91-6301451462",
+    "whatsapp": "916301451462",
     "email": "events@grandmaharaja.com",
     "tags": ["Luxury", "Heritage", "Royal"]
   },
@@ -63,8 +63,8 @@
     "rooms": [{ "name": "Crystal Ballroom", "capacity": 1200, "ac": true, "area": "15,000 sq ft" }],
     "bookedDates": ["2026-04-20", "2026-05-05"],
     "featured": true,
-    "phone": "+91-9876500001",
-    "whatsapp": "919876500001",
+    "phone": "+91-6301451462",
+    "whatsapp": "916301451462",
     "email": "info@royalorchid.com",
     "tags": ["Popular", "Great Value"]
   }

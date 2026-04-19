@@ -33,7 +33,7 @@ export default function CTASection() {
 
             {/* Contact Cards */}
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <a href="tel:+919876543210" style={{
+              <a href="tel:+916301451462" style={{
                 display: "flex", alignItems: "center", gap: "1rem",
                 background: "rgba(255,255,255,0.04)",
                 border: "1px solid rgba(255,255,255,0.08)",
@@ -48,11 +48,11 @@ export default function CTASection() {
                 <div style={{ width: 44, height: 44, borderRadius: "50%", background: "linear-gradient(135deg, var(--maroon), var(--maroon-dark))", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem", flexShrink: 0 }}>📞</div>
                 <div>
                   <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.4)", marginBottom: "0.1rem" }}>Call Now (One-tap dialing)</div>
-                  <div style={{ fontWeight: 700, fontSize: "1rem", color: "var(--white)" }}>+91 98765 43210</div>
+                  <div style={{ fontWeight: 700, fontSize: "1rem", color: "var(--white)" }}>+91 63014 51462</div>
                 </div>
               </a>
 
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" style={{
+              <a href="https://wa.me/916301451462" target="_blank" rel="noopener noreferrer" style={{
                 display: "flex", alignItems: "center", gap: "1rem",
                 background: "rgba(37,211,102,0.06)",
                 border: "1px solid rgba(37,211,102,0.2)",

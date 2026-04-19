@@ -6,11 +6,11 @@ import Link from "next/link";
 const ADMIN_PASSWORD = "grandvenue2026";
 
 const mockLeads = [
-  { id: "l1", name: "Aarav Mehta", phone: "+91 9876123400", event: "Wedding", date: "2026-06-15", guests: 500, hall: "The Grand Maharaja Palace", status: "New", time: "2 hrs ago" },
-  { id: "l2", name: "Sunita Rao", phone: "+91 9876123401", event: "Corporate", date: "2026-05-20", guests: 200, hall: "Skyline Banquet", status: "Contacted", time: "5 hrs ago" },
-  { id: "l3", name: "Ravi Sharma", phone: "+91 9876123402", event: "Birthday", date: "2026-05-10", guests: 150, hall: "Diamond Banquet", status: "Booked", time: "1 day ago" },
-  { id: "l4", name: "Priya Nair", phone: "+91 9876123403", event: "Reception", date: "2026-07-01", guests: 800, hall: "Royal Orchid", status: "New", time: "3 hrs ago" },
-  { id: "l5", name: "TechCorp Pvt Ltd", phone: "+91 9876123404", event: "Conference", date: "2026-05-25", guests: 300, hall: "Lotus Convention", status: "Contacted", time: "2 days ago" },
+  { id: "l1", name: "Aarav Mehta", phone: "+91 6301451462", event: "Wedding", date: "2026-06-15", guests: 500, hall: "The Grand Maharaja Palace", status: "New", time: "2 hrs ago" },
+  { id: "l2", name: "Sunita Rao", phone: "+91 6301451462", event: "Corporate", date: "2026-05-20", guests: 200, hall: "Skyline Banquet", status: "Contacted", time: "5 hrs ago" },
+  { id: "l3", name: "Ravi Sharma", phone: "+91 6301451462", event: "Birthday", date: "2026-05-10", guests: 150, hall: "Diamond Banquet", status: "Booked", time: "1 day ago" },
+  { id: "l4", name: "Priya Nair", phone: "+91 6301451462", event: "Reception", date: "2026-07-01", guests: 800, hall: "Royal Orchid", status: "New", time: "3 hrs ago" },
+  { id: "l5", name: "TechCorp Pvt Ltd", phone: "+91 6301451462", event: "Conference", date: "2026-05-25", guests: 300, hall: "Lotus Convention", status: "Contacted", time: "2 days ago" },
 ];
 
 const analyticsData = [
@@ -343,7 +343,7 @@ export default function AdminPage() {
                 </div>
                 <div className="form-group">
                   <label className="form-label">WhatsApp Number</label>
-                  <input type="tel" className="form-input" defaultValue="+91 98765 43210" />
+                  <input type="tel" className="form-input" defaultValue="+91 63014 51462" />
                 </div>
                 <div className="form-group">
                   <label className="form-label">WhatsApp Auto-Reply Message</label>

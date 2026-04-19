@@ -1,7 +1,7 @@
 "use client";
 
 export default function WhatsAppFloating() {
-  const phone = "919876543210";
+  const phone = "916301451462";
   const msg = encodeURIComponent(
     "Hello! I'm interested in booking a hall. Could you please share availability and pricing details?"
   );
